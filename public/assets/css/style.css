@@ -1,0 +1,672 @@
+/*============================
+		General Style
+==============================*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    font-family: sans-serif;
+    text-align: left;
+    font-size: 16px;
+    line-height: 20px;
+    word-wrap: break-word;
+    color: #666;
+    background: #fff;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*============================
+		Typography
+==============================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+a:hover {
+    text-decoration: none
+}
+
+p {
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: #888;
+    line-height: 24px;
+    font-weight: 400;
+    left: -1px;
+    margin-top: 20px;
+}
+
+/*============================
+		Navigation CSS
+==============================*/
+.navbar {
+    margin-bottom: 0;
+    padding-bottom: 25px;
+}
+
+.navbar-brand {
+    padding: 11px 15px;
+    padding-left: 50px;
+}
+
+.navbar-brand h1 {
+    font-size: 31px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.navbar-default {
+    background: #4500B7;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 15px 0;
+    border-radius: 0;
+    z-index: 12;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+}
+
+.sticky-header {
+    background: #fff;
+    padding: 10px 0;
+    border-bottom: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.sticky-header .navbar-brand h1 {
+    color: #303030;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.05em;
+    padding: 17px 15px 13px;
+    position: relative;
+}
+
+.navbar-default .navbar-nav > li > a:after {
+    content: '';
+    display: block;
+    width: calc(100% - 30px);
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
+    transform: scale(0, 1);
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover:after {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+}
+
+.active a {
+    background: none !important;
+    color: #fff !important;
+}
+
+.sticky-header .navbar-nav > li > a {
+    color: #303030;
+}
+
+.sticky-header .navbar-nav > li > a:after {
+    content: '';
+    display: block;
+    width: calc(100% - 30px);
+    height: 3px;
+    background: #333;
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
+    transform: scale(0, 1);
+    -webkit-transform: scale(0, 1);
+    -moz-transform: scale(0, 1);
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+.sticky-header .navbar-nav > li > a:hover {
+    color: #303030;
+}
+
+.sticky-header .navbar-nav > li > a:focus {
+    color: #303030;
+}
+
+.sticky-header .active a {
+    background: none !important;
+    color: #303030 !important;
+}
+
+.navbar-default .active a:after {
+    transform: scale(1) !important;
+    -webkit-transform: scale(1) !important;
+    -moz-transform: scale(1) !important;
+}
+
+.navbar-nav > li:nth-child(5) {
+    margin-left: 100px;
+}
+
+.navbar-nav > li:last-child {
+    padding-right: 50px;
+}
+
+.navbar-nav > li:nth-child(5) a:after {
+    display: none;
+}
+
+.navbar-nav > li:last-child a:after {
+    display: none
+}
+
+.navbar-default .navbar-nav .btn {
+    margin-top: 7px;
+    padding: 10px 20px !important;
+    margin-left: 10px;
+    border-radius: 25px;
+    background: #fff;
+    color: #4500B7;
+    border: 2px solid;
+    transition: .5s;
+}
+
+.sticky-header .navbar-nav .btn {
+    background: #4500B7;
+    color: #fff;
+}
+
+/*============================
+		Banner CSS
+==============================*/
+
+.banner-sec {
+    background: #4500B7;
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+.banner-sec h2 {
+    color: #fff;
+    font-size: 35px;
+}
+
+.banner-sec p {
+    color: #fff;
+}
+
+.banner-sec .text-center {
+    margin-top: 50px;
+}
+
+.btn-start {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0.6em;
+    color: #fff;
+    cursor: pointer;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn-start {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.btn-start:hover {
+    box-shadow: 0 0 40px 40px #fff inset;
+}
+
+/*============================
+		Blog CSS
+==============================*/
+
+#slider1 .owl-dot {
+    display: none;
+}
+
+.news {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #fafafa;
+}
+
+.date_box {
+    background-image: url(../assets/images/news_bg.png);
+    background-repeat: no-repeat;
+    height: 65px;
+    width: 65px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
+
+.date_box h2 {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 7px;
+}
+
+.large {
+    font-size: 22px;
+}
+
+.news_box {
+    box-shadow: 0px 5px 25px 0px rgba(204, 204, 204, 0.75);
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.news_box:hover i.fa.fa-arrow-right {
+    margin-left: 10px;
+}
+
+.news_detail {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.news_img img {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.news_detail h3 {
+    font-size: 16px;
+    color: #222222;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.news_detail p {
+    font-size: 14px;
+    color: #777777;
+    line-height: 26px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#slider1 i.fa.fa-angle-left {
+    font-size: 32px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #3166d2;
+    border-radius: 50px;
+    color: #3166d2;
+    line-height: 43px;
+    background-color: transparent;
+    transition: all ease 0.5s 0s;
+}
+
+#slider1 i.fa.fa-angle-left:hover {
+    transition: all ease 0.5s 0s;
+    border: 2px solid #3166d2;
+    color: #fff;
+    line-height: 43px;
+    background: rgba(109, 46, 192, 1);
+    background: -moz-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(109, 46, 192, 1)), color-stop(100%, rgba(0, 147, 226, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ec0', endColorstr='#0093e2', GradientType=1);
+}
+
+#slider1 i.fa.fa-angle-right {
+    font-size: 32px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #3166d2;
+    border-radius: 50px;
+    color: #3166d2;
+    line-height: 43px;
+}
+
+#slider1 i.fa.fa-angle-right:hover {
+    transition: all ease 0.5s 0s;
+    border: 2px solid #3166d2;
+    color: #fff;
+
+    line-height: 43px;
+    background: rgba(109, 46, 192, 1);
+    background: -moz-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(109, 46, 192, 1)), color-stop(100%, rgba(0, 147, 226, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ec0', endColorstr='#0093e2', GradientType=1);
+}
+
+.news_img {
+    background-color: transparent;
+}
+
+.news_box:hover .news_img {
+    background: rgba(109, 46, 192, 1);
+    background: -moz-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(109, 46, 192, 1)), color-stop(100%, rgba(0, 147, 226, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ec0', endColorstr='#0093e2', GradientType=1);
+    border-radius: 10px 10px 0px 0px;
+    transition: all ease 0.5s 0s;
+}
+
+.news_detail a {
+    color: #007bff !important;
+    transition: .5s !important;
+}
+
+/*============================
+		Sign Up Form CSS
+==============================*/
+.su-first-form {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.fr-br {
+    border: 1px solid #ebe9e8;
+    padding: 25px 50px;
+    padding-top: 50px;
+    box-shadow: 10px 10px 25px 10px rgba(204, 204, 204, 1)
+}
+
+.su-first-form .title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.form-control {
+    background: #4500B7;
+    font-size: 18px;
+    color: #fff;
+    height: 40px;
+    padding: 20px 15px;
+    border-radius: 0;
+}
+
+select.form-control {
+    padding: 10px;
+}
+
+.next-btn {
+    font-size: 18px;
+    margin-top: -10px;
+    float: right;
+}
+
+.su-first-form input::placeholder {
+    color: #fff;
+}
+
+.cs-btn {
+    font-size: 18px;
+    display: block;
+    width: 100%;
+}
+
+.next-btn .fa-angle-right {
+    margin-left: 10px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.action-progress ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+.btn-log {
+    color: #4500B7;
+    border-color: #4500B7;
+}
+.btn-log:hover {
+    box-shadow: 0 0 40px 40px #4500B7 inset;
+    color: #fff;
+}
+
+.action-progress ul li {
+    display: inline-block;
+    background: #4500B7;
+    box-shadow: 5px 5px 15px 10px rgba(204, 204, 204, 1);
+    margin: 0 5px;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 90px;
+    opacity: 0.8;
+}
+
+.action-progress ul i {
+    font-size: 40px;
+    color: #fff;
+}
+
+.action-progress ul p {
+    font-weight: 500;
+    margin: 0;
+    margin-top: 10px;
+    color: #fff;
+}
+.action-progress .active {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+/*============================
+		Call to action CSS
+==============================*/
+.call_to_action {
+    background: rgba(109, 46, 192, 1);
+    background: -moz-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(109, 46, 192, 1)), color-stop(100%, rgba(0, 147, 226, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ec0', endColorstr='#0093e2', GradientType=1);
+    padding-top: 35px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.action_con h1 {
+    font-size: 28px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0px;
+}
+
+a.contact_us_btn {
+    font-size: 14px;
+    color: #0094e2;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 13px 35px;
+    border-radius: 50px;
+    transition: all ease 0.5s 0s;
+}
+
+a.contact_us_btn:hover {
+    box-shadow: 0px 15px 20px 0px rgba(110, 46, 92, 0.20);
+    transition: all ease 0.5s 0s;
+}
+
+.new-project {
+    padding: 38px 0 38px;
+    background: rgba(109, 46, 192, 1);
+    background: -moz-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(109, 46, 192, 1)), color-stop(100%, rgba(0, 147, 226, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    background: linear-gradient(45deg, rgba(109, 46, 192, 1) 0%, rgba(0, 147, 226, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ec0', endColorstr='#0093e2', GradientType=1);
+}
+
+.single-new-project h3 {
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+}
+
+.single-new-project a.slide-btn,
+.single-new-project a:active .slide-btn,
+.single-new-project a:focus .slide-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background: #fff;
+    color: #0094e2;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all ease 0.5s 0s;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.slide-btn:hover {
+    box-shadow: 0px 15px 20px 0px rgba(110, 46, 92, 0.20);
+    transition: all ease 0.5s 0s;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+/*============================
+		Footer CSS
+==============================*/
+footer {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    background: #4500B7;
+}
+
+.foot-link {
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 5px;
+    transition: .5s;
+}
+footer p {
+    text-align: justify;
+    color: #fff;
+}
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.footer_bottom {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.copyright p {
+    font-size: 14px;
+    color: #777777;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 0px;
+}
