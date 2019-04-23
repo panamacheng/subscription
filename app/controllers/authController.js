@@ -1,7 +1,8 @@
 // authController.js
 'use strict';
 
-var jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken'),
+    bcrypt = require('bcrypt');
 
 var config = require('../_core/config'),
     db = require('../services/database'),
@@ -135,12 +136,13 @@ AuthController.signUpPlan = function(req, res) {
             expiryDate : expiryDate,
             cvc : cvc
         } 
-        
-        console.log(validateCardData);
+
         // Validate Card.
         cardValidatorHandler.validateCard(validateCardData, function(callback) {
             if (!callback) {
-                console.log('false');
+                res.status(404).json({
+                    message: 'Invalidated your card details. Please input your correct details'
+                })
             } else {
                 Parent.findOne(potentialID).then(function(parent) {
                     if(parent) {
@@ -165,7 +167,7 @@ AuthController.signUpPlan = function(req, res) {
                                     }
                                     res.status(201).json({
                                         parentID: parentID,
-                                        message: 'please verify your account'
+                                        message: 'Successfully added your billing method!'
                                     });
                                 });
                             } else {
@@ -264,39 +266,56 @@ AuthController.signUp = function(req, res) {
 
 // Authenticate a user.
 AuthController.authenticateUser = function(req, res) {
-    // if(!req.body.username || !req.body.password) {
-    //     res.status(404).json({ message: 'Username and password are needed!' });
-    // } else {
-    //     var username = req.body.username,
-    //         password = req.body.password,
-    //         potentialUser = { where: { username: username } };
+    if(!req.body.email || !req.body.password) {
+        res.status(404).json({ message: 'User Email and password are needed!' });
+    } else {
+        var email = req.body.email,
+            password = req.body.password,
+            potentialEmail= { where: { email: email } };
 
-    //     User.findOne(potentialUser).then(function(user) {
-    //         if(!user) {
-    //             res.status(404).json({ message: 'Authentication failed!' });
-    //         } else {
-    //             user.comparePasswords(password, function(error, isMatch) {
-    //                 if(isMatch && !error) {
-    //                     var token = jwt.sign(
-    //                         { username: user.username },
-    //                         config.keys.secret,
-    //                         { expiresIn: '30m' }
-    //                     );
+        Parent.findOne(potentialEmail).then(function(parent) {
+            if(!parent) {
+                res.status(404).json({ message: 'Authentication failed!' });
+            } else {
+                bcrypt.compare(password, parent.dataValues.password, function(error, response) {
+                    if (response && !error) {
+                        var token = jwt.sign(
+                            { email: parent.dataValues.email },
+                            config.keys.secret,
+                            { expiresIn: '60m' }
+                        );
 
-    //                     res.json({
-    //                         success: true,
-    //                         token: 'JWT ' + token,
-    //                         role: user.role
-    //                     });
-    //                 } else {
-    //                     res.status(404).json({ message: 'Login failed!' });
-    //                 }
-    //             });
-    //         }
-    //     }).catch(function(error) {
-    //         res.status(500).json({ message: 'There was an error!' });
-    //     });
-    // }
+                        res.json({
+                            success: true,
+                            token: 'JWT ' + token,
+                            role: parent.role
+                        });
+                    } else {
+                        res.status(404).json({ message: 'Login failed!' });
+                    }
+                })
+                // parent.comparePasswords(password, function(error, isMatch) {
+                //     if(isMatch && !error) {
+                //         var token = jwt.sign(
+                //             { email: parent.email },
+                //             config.keys.secret,
+                //             { expiresIn: '30m' }
+                //         );
+
+                //         res.json({
+                //             success: true,
+                //             token: 'JWT ' + token,
+                //             role: parent.role
+                //         });
+                //     } else {
+                //         res.status(404).json({ message: 'Login failed!' });
+                //     }
+                // });
+            }
+        }).catch(function(error) {
+            res.status(500).json({ message: 'There was an error!' });
+        });
+    }
 }
 
 module.exports = AuthController;

@@ -30,8 +30,8 @@ config.keys = {
 config.smtp = {
     service: "Gmail",
     auth: {
-        user: 'rangotoptalent@gmail.com',
-        pass: 'Rango941001top@@@'
+        user: 'yusef.amr0812@gmail.com',
+        pass: 'rango941001top@@'
     }
 }
 

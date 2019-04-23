@@ -74,7 +74,7 @@
         // Login route.
         $stateProvider.state('login', {
             url: '/login',
-            templateUrl: 'app/views/partials/partial-login.html',
+            templateUrl: 'app/views/partials/signin/partial-signin.html',
             controller: 'LoginController as lc'
         });
 

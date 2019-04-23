@@ -27,12 +27,12 @@
 
         return authService;
 
-        function login(username, password) {
+        function login(email, password) {
             var reqObj = {
                 method: 'POST',
                 url: '/api/authenticate',
                 data: {
-                    username: username,
+                    email: email,
                     password: password
                 }
             };

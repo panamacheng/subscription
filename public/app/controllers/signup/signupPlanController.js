@@ -17,6 +17,7 @@
 
         vm.signupSuccess = false;
         vm.signupError = false;
+
         vm.init = init;
         vm.planArray = [];
         vm.parentEmail = $stateParams.obj.parentEmail;
@@ -51,30 +52,19 @@
         }
 
         function handleSuccessfulSignupPlan(response) {
-            // vm.signupSuccess = true;
-            // vm.signupParentSuccessMessage = response.data.message;
-            // var sendDataObj = {
-            //     parentID: $stateParams.obj.parentID,
-            //     parentEmail: $stateParams.obj.email,
-            //     studentID: response.data.studentID,
-            //     studentEmail: response.data.studentEmail
-            // }
+            vm.signupSuccess = true;
+            vm.signupSuccessMessage = response.data.message;
+
             setTimeout(() => {
                 $state.go('signup/parent/verify', { obj: response.data});
             }, 800);
         }
 
         function handleFailedSignupPlan(response) {
-            console.log(response);
-            // vm.signupSuccess = false;
-
-            // if(response && response.data) {
-            //     vm.signupErrorMessage = response.data.message;
-            //     vm.signupError = true;
-            // }
+            vm.signupSuccess = false;
+            vm.signupError = true;
+            vm.signupErrorMessage = response.data.message;
         }
-
-        // console.log($stateParams);
     }
 
 })();

@@ -106,7 +106,7 @@ var modelOptions = {
 }
 
 // 3. Define the Parent model
-var ParentModel = db.define('tbl_parent', modelDefinition, modelOptions);
+var ParentModel = db.define('tbl_parents', modelDefinition, modelOptions);
 
 // 4. Compare two passwords.
 function comparePasswords(password, callback) {

@@ -34,54 +34,45 @@
 <div class="su-first-form">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="fr-br">
                     <div class="title">
                         <div class="logo">
                             <a class="" href="#">
                                 <h1><img src="assets/images/icon-1.png" alt=""> Mind</h1>
                             </a>
-                            <h3>Risk free, 14 day free trial, cancel anytime</h3>
                         </div>
                     </div>
-                    <div class="action-progress">
-                        <ul>
-                            <li><i class="fa fa-star"></i>
-                                <p>Parent</p>
-                            </li>
-                            <li><i class="fa fa-heart"></i>
-                                <p>Student</p>
-                            </li>
-                            <li><i class="fa fa-star"></i>
-                                <p>Plan </p>
-                            </li>
-                            <li><i class="fa fa-heart"></i>
-                                <p>Verify </p>
-                            </li>
-                            <li class="active"><i class="fa fa-gear"></i>
-                                <p>Add Suffix</p>
-                            </li>
-                            <!-- <li><i class="fa fa-heart"></i>
-                                <p>Verify 2</p>
-                            </li> -->
-                        </ul>
-                    </div>
+                    <div class="alert alert-danger" ng-if="lc.loginError" role="alert">{{ lc.loginErrorMessage }}</div>
                     <hr>
-                    <form ng-submit="spas.setSuffix()">
-
-                        <p>Thank you for subscribing. We will now send a final set-up email to your student.</p>
-                        <p>If you would like to include a brief message, please type it here:</p>
+                    <form ng-submit="lc.login()">
+                        <h1 style="text-align: center;">Sign In</h1>
                         <div class="form-group">
-                            <textarea ng-model="spas.setInputedSuffix" class="form-control" rows="8" id="comment"></textarea>
+                            <label for="email">Email</label>
+                            <input ng-model="lc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" required autocomplete="on" autofocus>
                         </div>
-                        <div class="form-group mt-50">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-success next-btn">Next Step <i class="fa fa-angle-right"></i> </button>
+                                    <label for="password">Password</label>
+                                    <input ng-model="lc.password" type="password" class="form-control" id="password" placeholder="Password" required autocomplete="on">
                                 </div>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="form-group col-md-6 col-md-offset-3">
+                                    <button type="submit" class="btn btn-start btn-log">Sign IN</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <h3>If you have not an account, <a ui-sref="signup/parent">Sign Up Here</a></h3>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
