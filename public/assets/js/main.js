@@ -22,10 +22,6 @@
         return false;
     });
 
-
-
-
-
     /* Sticky header */
     $window.scroll(function () {
         if ($window.scrollTop() > 200) {
