@@ -54,41 +54,47 @@
                             <li><i class="fa fa-heart"></i><p>Verify 2</p></li> -->
                         </ul>
                     </div>
-                    <div class="form-group text-center">
-                        <div class="alert alert-danger" ng-if="spc.signupError" role="alert">
-                            {{ spc.signupErrorMessage }} <br> If you aleady have a account <a ui-sref="login">Signin</a>
-                        </div>
-                        <div class="alert alert-success" ng-if="spc.signupSuccess" role="alert">
-                            {{ spc.signupParentSuccessMessage }}.!
-                        </div>
-                    </div>
                     <hr>
                     <form ng-submit="spc.signupParent()">
                         <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="first-name">First Name</label>
-                                    <input ng-model="spc.firstName" type="text" class="form-control" id="first-name" placeholder="First Name" required autocomplete="on" autofocus>
+                                    <input ng-model="spc.firstName" type="text" class="form-control" id="first-name" placeholder="First Name" autocomplete="on" autofocus>
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="spc.firstNameError"><strong>{{ spc.firstNameErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="last-name">Last Name </label>
-                                    <input ng-model="spc.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name " required autocomplete="on">
+                                    <input ng-model="spc.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name " autocomplete="on">
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="spc.lastNameError"><strong>{{ spc.lastNameErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input ng-model="spc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" required autocomplete="on">
+                            <input ng-model="spc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" autocomplete="on">
+                            <div class="col-md-12 error-message">
+                                <p ng-if="spc.emailError"><strong>{{ spc.emailErrorMsg }}</strong> </p>
+                            </div>
+                            
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-7">
                                     <label for="password">Password</label>
-                                    <input ng-model="spc.password" type="password" class="form-control" id="password" placeholder="Password" required autocomplete="on">
+                                    <input ng-model="spc.password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="on">
                                 </div>
+
                                 <div class="col-md-3">
                                     <h3 style="margin-top: 35px;">Pattern</h3>
                                 </div>
+                            </div>
+                            <div class="col-md-12 error-message">
+                                <p ng-if="spc.passwordError"><strong>{{ spc.passwordErrorMsg }}</strong> </p>
                             </div>
                         </div>
                         <div class="form-group mt-50">

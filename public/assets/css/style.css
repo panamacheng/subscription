@@ -35,6 +35,15 @@ img {
     height: auto;
 }
 
+.error-message p{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:5px; 
+    margin-bottom: 5px;
+    color:#d61010;
+    font-weight: bold;
+    font-size: 15px;
+}
+
 /*============================
 		Typography
 ==============================*/

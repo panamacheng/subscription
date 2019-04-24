@@ -26,12 +26,13 @@ AuthController.signUpParent = function(req, res) {
             lastName = req.body.lastName,
             email = req.body.email,
             password = req.body.password,
+            
             potentialEmail = { where: { email: email } };
 
         Parent.findOne(potentialEmail).then(function(parent) {
             if (parent) {
                 res.status(403).json({
-                    message: 'Email already used by another user!'
+                    message: 'This email already used by another user!'
                 });
             } else {
                 db.sync().then(function() {
@@ -39,7 +40,8 @@ AuthController.signUpParent = function(req, res) {
                         first_name: firstName,
                         last_name: lastName,
                         email: email,
-                        password: password
+                        password: password,
+                        status : 3
                     };
 
                     return Parent.create(newParent).then(function(response) {

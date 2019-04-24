@@ -54,14 +54,14 @@
                             <li><i class="fa fa-heart"></i><p>Verify 2</p></li> -->
                         </ul>
                     </div>
-                    <div class="form-group text-center">
+                    <!-- <div class="form-group text-center">
                         <div class="alert alert-danger" ng-if="spnc.signupError" role="alert">
                             {{ spc.signupErrorMessage }}
                         </div>
                         <div class="alert alert-success" ng-if="spnc.signupSuccess" role="alert">
                             {{ spc.signupSuccessMessage }}.!
                         </div>
-                    </div>
+                    </div> -->
                     <hr>
                     <form ng-submit="spnc.signupPlan()">
                         <div class="form-group">
@@ -69,43 +69,64 @@
                                 <label for="plan">Plan</label>
                                 <select class="form-control" ng-model="spnc.selectedPlan" ng-options="x.name for x in spnc.planArray">
                                 </select>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="spnc.planError"><strong>{{ spnc.planErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="cardholders">Cardholders Name</label>
-                            <input ng-model="spnc.cardName" type="text" class="form-control" id="cardholders" placeholder="Cardholders Name" required autocomplete="on" autofocus>
+                            <input ng-model="spnc.cardName" type="text" class="form-control" id="cardholders" placeholder="Cardholders Name" autocomplete="on" autofocus>
+                            <div class="col-md-12 error-message">
+                                <p ng-if="spnc.cardNameError"><strong>{{ spnc.cardNameErrorMsg }}</strong> </p>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Cell Phone</label>
-                            <input ng-model="spnc.phoneNumber" type="text" class="form-control" id="phone" placeholder="+000000000" required autocomplete="on">
+                            <input ng-model="spnc.phoneNumber" type="text" class="form-control" id="phone" placeholder="+000000000" autocomplete="on">
+                            <div class="col-md-12 error-message">
+                                <p ng-if="spnc.phoneNumberError"><strong>{{ spnc.phoneNumberErrorMsg }}</strong> </p>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="cardnumber">Card Number</label>
-                            <input ng-model="spnc.cardNumber" type="text" class="form-control" id="cardnumber" placeholder="+000000000" required autocomplete="on">
+                            <input ng-model="spnc.cardNumber" type="text" class="form-control" id="cardnumber" placeholder="+000000000" autocomplete="on">
+                            <div class="col-md-12 error-message">
+                                <p ng-if="spnc.cardNumberError"><strong>{{ spnc.cardNumberErrorMsg }}</strong> </p>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="date">Expiration Date</label>
-                                    <input ng-model="spnc.expirationDate" type="month" class="form-control" id="date" placeholder="" required>
+                                    <input ng-model="spnc.expirationDate" type="month" class="form-control" id="date" placeholder="">
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="spnc.expirationDateError"><strong>{{ spnc.expirationDateErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="cvc">CVC </label>
-                                    <input ng-model="spnc.cvc" type="number" class="form-control" id="cvc" placeholder="" required>
+                                    <input ng-model="spnc.cvc" type="number" class="form-control" id="cvc" placeholder="">
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="spnc.cvcError"><strong>{{ spnc.cvcErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <input ng-model="spnc.checkbox" class="form-check-input" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" style="font-size: 18px; font-weight: 500; margin-left: 10px;" for="gridCheck">
                                     I agree to the <a href="">terms</a> and <a href="">privacy policy</a>.
                                 </label>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="spnc.checkboxError"><strong>{{ spnc.checkboxErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 

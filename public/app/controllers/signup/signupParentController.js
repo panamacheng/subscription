@@ -14,30 +14,54 @@
         var vm = this;
 
         vm.signupSuccess = false;
-        vm.signupError = false
-        vm.signupErrorMessage = null;
-        // vm.firstName = '';
-        // vm.lastName = '';
-        // vm.email = '';
-        // vm.password = '';
+
+        vm.firstNameError = false;
+        vm.firstNameErrorMsg = null;
+        vm.lastNameError = false;
+        vm.lastNameErrorMsg = null;
+        vm.emailError = false;
+        vm.emailErrorMsg = null;
+        vm.passwordError = false;
+        vm.passwordErrorMsg = null;
+        vm.firstName = '';
+        vm.lastName = '';
+        vm.email = '';
+        vm.password = '';
 
         vm.signupParent = signupParent;
 
         function signupParent() {
-            vm.signupSuccess = false;
-            vm.signupError = false
-            vm.signupErrorMessage = null;
-            
-            var signupParentData = {
-                firstName: vm.firstName,
-                lastName: vm.lastName,
-                email: vm.email,
-                password: vm.password
+            if(!vm.firstName) {
+                vm.firstNameError = true;
+                vm.firstNameErrorMsg = 'Please input your first name';
             }
-            
-            authService.signupParent(signupParentData)
-                .then(handleSuccessfulSignupParent)
-                .catch(handleFailedSignupParent);
+            if(!vm.lastName) {
+                vm.lastNameError = true;
+                vm.lastNameErrorMsg = 'Please input your last name';
+            }
+
+            if(!vm.email) {
+                vm.emailError = true;
+                vm.emailErrorMsg = 'Please input your email to set your account';
+            }
+
+            if(!vm.password) {
+                vm.passwordError = true;
+                vm.passwordErrorMsg = 'Please input your password to set your account';
+            }
+
+            if(vm.firstName && vm.lastName && vm.email && vm.password) {
+                var signupParentData = {
+                    firstName: vm.firstName,
+                    lastName: vm.lastName,
+                    email: vm.email,
+                    password: vm.password
+                }
+
+                authService.signupParent(signupParentData)
+                    .then(handleSuccessfulSignupParent)
+                    .catch(handleFailedSignupParent);
+            }
         }
 
         function handleSuccessfulSignupParent(response) {
@@ -49,12 +73,20 @@
         }
 
         function handleFailedSignupParent(response) {
-            console.log(response.data.message);
+            vm.firstNameError = false;
+            vm.firstNameErrorMsg = null;
+            vm.lastNameError = false;
+            vm.lastNameErrorMsg = null;
+            vm.emailError = false;
+            vm.emailErrorMsg = null;
+            vm.passwordError = false;
+            vm.passwordErrorMsg = null;
             vm.signupSuccess = false;
 
             if(response && response.data) {
-                vm.signupErrorMessage = response.data.message;
-                vm.signupError = true;
+                vm.emailError = true;
+                vm.emailErrorMsg = response.data.message;
+                
             }
         }
     }

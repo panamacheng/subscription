@@ -50,37 +50,49 @@
                                 <li class="active"><i class="fa fa-heart"></i><p>Student</p></li>
                             </ul>
                         </div>
-                        <div class="form-group text-center"><br>
+                        <!-- <div class="form-group text-center"><br>
                             <div class="alert alert-danger" ng-if="ssc.signupError" role="alert">
                                 {{ ssc.signupErrorMessage }}<br> If you aleady have a account <a ui-sref="login">login</a>!
                             </div>
                             <div class="alert alert-success" ng-if="ssc.signupSuccess" role="alert">
                                 {{ ssc.signupStudentSuccessMessage }}.
                             </div>
-                        </div>
+                        </div> -->
                         <hr>
                         <form ng-submit="ssc.signupStudent()">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="first-name">First Name</label>
-                                        <input ng-model="ssc.firstName" type="text" class="form-control" id="first-name" placeholder="First Name" required autocomplete="on" autofocus>
+                                        <input ng-model="ssc.firstName" type="text" class="form-control" id="first-name" placeholder="First Name" autocomplete="on" autofocus>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.firstNameError"><strong>{{ ssc.firstNameErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="last-name">Last Name </label>
-                                        <input ng-model="ssc.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name " required autocomplete="on">
+                                        <input ng-model="ssc.lastName" type="text" class="form-control" id="last-name" placeholder="Last Name" autocomplete="on">
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.lastNameError"><strong>{{ ssc.lastNameErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input ng-model="ssc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" required autocomplete="on">
+                                <input ng-model="ssc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" autocomplete="on">
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="ssc.emailError"><strong>{{ ssc.emailErrorMsg }}</strong> </p>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">Cell Phone</label>
                                 <input ng-model="ssc.phoneNumber" type="number" class="form-control" id="phone" placeholder="+000000000">
+                                <!-- <div class="col-md-12 error-message">
+                                    <p ng-if="ssc.phoneNumberError"><strong>{{ ssc.phoneNumberErrorMsg }}</strong> </p>
+                                </div> -->
                             </div>
 
                             <div class="form-group">
@@ -89,11 +101,17 @@
                                         <label for="state">State</label>
                                         <select class="form-control" ng-model="ssc.selectedState" ng-options="x.name for x in ssc.stateArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.stateError"><strong>{{ ssc.stateErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="school">School</label>
-                                        <select class="form-control" id="school" ng-model="ssc.selectedShool" ng-options="x.name for x in ssc.schoolArray">
+                                        <select class="form-control" id="school" ng-model="ssc.selectedSchool" ng-options="x.name for x in ssc.schoolArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.schoolError"><strong>{{ ssc.schoolErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -104,11 +122,17 @@
                                         <label for="year">Year</label>
                                         <select class="form-control" id="year" ng-model="ssc.selectedYear" ng-options="x.name for x in ssc.yearArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.yearError"><strong>{{ ssc.yearErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="major">Major</label>
                                         <select class="form-control" id="major" ng-model="ssc.selectedMajor" ng-options="x.name for x in ssc.majorArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.majorError"><strong>{{ ssc.majorErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -119,11 +143,17 @@
                                         <label for="sport">Sport</label>
                                         <select class="form-control" id="sport" ng-model="ssc.selectedSport" ng-options="x.name for x in ssc.sportArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.sportError"><strong>{{ ssc.sportErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="activity">Activity</label>
                                         <select class="form-control" id="activity" ng-model="ssc.selectedActivity" ng-options="x.name for x in ssc.activityArray">
                                         </select>
+                                        <div class="col-md-12 error-message">
+                                            <p ng-if="ssc.activityError"><strong>{{ ssc.activityErrorMsg }}</strong> </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,6 +163,9 @@
                                     <label for="personal">Personal Challenge</label>
                                     <select class="form-control" id="challenge" ng-model="ssc.selectedChallenge" ng-options="x.name for x in ssc.challengeArray">
                                     </select>
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="ssc.challengeError"><strong>{{ ssc.challengeErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                             </div>
 
