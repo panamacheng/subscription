@@ -159,6 +159,16 @@
             controller: 'SignupAddStudentController as sasc'
         });
 
+          // Signup verify Student route.
+          $stateProvider.state('signup/verify/student', {
+            url: '/signup',
+            templateUrl: 'app/views/partials/signup/partial-signup-student-verify.html',
+            params: {
+                obj: null
+            },
+            controller: 'signupVerifyStudentController as svsc'
+        });
+
         $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('requestInterceptor');
     }

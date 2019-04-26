@@ -67,24 +67,27 @@
                         </ul>
                     </div>
                     <hr>
-                    <form action="">
+                    <form ng-submit="svsc.verifyStudent()">
 
                         <div class="form-group">
                             <p style="margin-bottom: 50px;">Awesome, Thanks for signing up. Please enter the validation code we just texted you to start this service.</p>
                             <div class="row">
                                 <div class="form-group col-md-5">
                                     <label for="code">Your Validation Code</label>
-                                    <input type="text" class="form-control" id="code" placeholder="">
+                                    <input ng-model="svsc.verify" type="text" class="form-control" id="code" placeholder="" required autofocus>
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="svsc.verifyError"><strong>{{ sasc.verifyErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-7">
-                                    <a href="" type="button" class="btn btn-success next-btn" style="margin-top: 30px"> Verify </a>
+                                    <button type="submit" class="btn btn-success next-btn" style="margin-top: 30px"> Verify </button>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mt-50">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <h3>Already have an account, <a href="">Sign In Here</a></h3>
+                                    <h3>Already have an account, <a ui-sref="logiin">Sign In Here</a></h3>
                                 </div>
                             </div>
                         </div>

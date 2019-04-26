@@ -31,7 +31,7 @@
 </header>
 <!-- Header Section Ends-->
 
-<div class="su-first-form">
+<div ng-init="sasc.init()" class="su-first-form">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -59,114 +59,101 @@
                                 <p>Verify </p>
                             </li>
                             <li class="active"><i class="fa fa-gear"></i>
-                                <p>Add New</p>
+                                <p>Student2</p>
                             </li>
-                            <li><i class="fa fa-heart"></i>
+                            <!-- <li><i class="fa fa-heart"></i>
                                 <p>Verify 2</p>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <hr>
-                    <form action="">
+                    <form ng-submit="sasc.signupAddStudent()">
                         <p>Your parent/guardian [Parent Name] activated a subscription to our service. Read more about it <a href="">here</a>. Give it a try…you might like it. Please personalize the service below:</p>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="sample.002@gmail.com">
+                            <input ng-model="sasc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" required autocomplete="on" autofocus>
+                            <div class="col-md-12 error-message">
+                                <p ng-if="sasc.emailError"><strong>{{ sasc.emailErrorMsg }}</strong> </p>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Cell Phone</label>
-                            <input type="text" class="form-control" id="phone" placeholder="+000000000">
+                            <input ng-model="sasc.phoneNumber" type="number" min="0" class="form-control" id="phone" placeholder="+000000000" required autocomplete="on">
+                            <div class="col-md-12 error-message">
+                                <p ng-if="sasc.phoneNumberError"><strong>{{ sasc.phoneNumberErrorMsg }}</strong> </p>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="major">What’s your Major?</label>
-                                <select class="form-control" id="major">
-                                    <option value=""></option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
+                                <select class="form-control" id="major" ng-model="sasc.selectedMajor" ng-options="x.name for x in ssc.majorArray">
                                 </select>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.majorError"><strong>{{ sasc.majorErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="sport">Are you in a Sport?</label>
-                                <select class="form-control" id="sport">
-                                    <option value=""></option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
+                                <select class="form-control" id="sport" ng-model="sasc.selectedSport" ng-options="x.name for x in ssc.sportArray">
                                 </select>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.sportError"><strong>{{ sasc.sportErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="activity">Are you in a club or Activity?</label>
-                                <select class="form-control" id="activity">
-                                    <option value=""></option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
+                                <select class="form-control" id="activity" ng-model="sasc.selectedActivity" ng-options="x.name for x in ssc.activityArray">
                                 </select>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.activityError"><strong>{{ sasc.activityErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="start-day">What time do you start your day?</label>
-                                <select class="form-control" id="start-day">
-                                    <option value=""></option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                </select>
+                                <label for="startTime">What time do you start your day?</label>
+                                <input ng-model="sasc.startTime" type="time" name="startTime" id="startTime" class="form-control" required>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.startTimeError"><strong>{{ sasc.startTimeErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="end-day">What time do you end your day?</label>
-                                <select class="form-control" id="end-day">
-                                    <option value=""></option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                    <option value="">PLan 1</option>
-                                </select>
+                                <label for="endTime">What time do you end your day?</label>
+                                <input ng-model="sasc.endTime" type="time" name="endTime" id="endTime" class="form-control" required>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.endTimeError"><strong>{{ sasc.endTimeErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <input ng-model="sasc.checkbox" class="form-check-input" type="checkbox" id="gridCheck">
                                 <label class="form-check-label" style="font-size: 18px; font-weight: 500; margin-left: 10px;" for="gridCheck">
                                     I agree to the <a href="">terms</a> and <a href="">privacy policy</a>.
                                 </label>
+                                <div class="col-md-12 error-message">
+                                    <p ng-if="sasc.checkboxError"><strong>{{ sasc.checkboxErrorMsg }}</strong> </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group mt-50">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <a href="signup-8.html" type="button" class="btn btn-success next-btn">Next Step <i class="fa fa-angle-right"></i> </a>
+                                    <button type="submit" class="btn btn-success next-btn">Next Step <i class="fa fa-angle-right"></i> </button>
                                 </div>
                             </div>
                         </div>

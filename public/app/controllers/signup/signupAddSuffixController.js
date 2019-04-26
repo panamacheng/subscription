@@ -21,6 +21,7 @@
                 suffix : vm.setInputedSuffix,
                 parentID : $stateParams.obj.parentID
             }
+            
             authService.setSuffix(setSuffixData)
                 .then(signupSuccessfulHandler)
                 .catch(signupFailedHandler);
