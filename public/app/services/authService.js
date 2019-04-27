@@ -21,7 +21,7 @@
             signupParentVerify  : signupParentVerify,
             setSuffix           : setSuffix,
             signupAddStudent    : signupAddStudent,
-            // signup: signup,
+            studentSignin       : studentSignin,
             getUserData         : getUserData,
             isAuthenticated     : isAuthenticated
         };
@@ -36,6 +36,16 @@
                     email: email,
                     password: password
                 }
+            };
+
+            
+        }
+
+        function studentSignin(data) {
+            var reqObj = {
+                method: 'POST',
+                url: '/api/signin/student',
+                data: data
             };
 
             return $http(reqObj).then(function(response) {

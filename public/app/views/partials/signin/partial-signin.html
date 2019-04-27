@@ -42,38 +42,94 @@
                                 <h1><img src="assets/images/icon-1.png" alt=""> Mind</h1>
                             </a>
                         </div>
+                        
                     </div>
-                    <div class="alert alert-danger" ng-if="lc.loginError" role="alert">{{ lc.loginErrorMessage }}</div>
-                    <hr>
-                    <form ng-submit="lc.login()">
-                        <h1 style="text-align: center;">Sign In</h1>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input ng-model="lc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" required autocomplete="on" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label for="password">Password</label>
-                                    <input ng-model="lc.password" type="password" class="form-control" id="password" placeholder="Password" required autocomplete="on">
+                    <div class="form-group">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#parent-signin" data-toggle="tab">
+                                    <label>Parent Signin</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#student-signin" data-toggle="tab">
+                                   <label> Student Signin</label>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="parent-signin" class="tab-pane fade in active">
+                            <form ng-submit="lc.login()">
+                                <h1 style="text-align: center;">Parent Sign In</h1>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input ng-model="lc.email" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" autocomplete="on" autofocus>
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="lc.emailError"><strong>{{ lc.emailErrorMsg }}</strong> </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="form-group col-md-6 col-md-offset-3">
-                                    <button type="submit" class="btn btn-start btn-log">Sign IN</button>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="password">Password</label>
+                                            <input ng-model="lc.password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="on">
+                                            <div class="col-md-12 error-message">
+                                                <p ng-if="lc.passwordError"><strong>{{ lc.passwordErrorMsg }}</strong> </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    <h3>If you have not an account, <a ui-sref="signup/parent">Sign Up Here</a></h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-md-offset-3">
+                                            <button type="submit" class="btn btn-start btn-log">Sign IN</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <h3>If you have not an account, <a ui-sref="signup/parent">Sign Up Here</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div id="student-signin" class="tab-pane fade">
+                            <form ng-submit="lc.studentSignin()">
+                                <h1 style="text-align: center;">Parent Sign In</h1>
+                                <div class="form-group">
+                                    <label for="email">Student Email</label>
+                                    <input ng-model="lc.studentEmail" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" autocomplete="on" autofocus>
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="lc.studentEmailError"><strong>{{ lc.studentEmailErrorMsg }}</strong> </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Parent Email</label>
+                                    <input ng-model="lc.parentEmail" type="email" class="form-control" id="email" placeholder="sample.002@gmail.com" autocomplete="on">
+                                    <div class="col-md-12 error-message">
+                                        <p ng-if="lc.parentEmailError"><strong>{{ lc.parentEmailErrorMsg }}</strong> </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-md-offset-3">
+                                            <button type="submit" class="btn btn-start btn-log">Sign IN</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <h3>If you have not an account, <a ui-sref="signup/parent">Sign Up Here</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

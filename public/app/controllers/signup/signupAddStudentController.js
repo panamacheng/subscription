@@ -1,5 +1,3 @@
-import { V4MAPPED } from "dns";
-
 (function() {
     'use strict';
 

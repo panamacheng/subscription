@@ -76,26 +76,28 @@
                         <div class="form-group mt-50">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <button type="submit" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-success next-btn">Next Step <i class="fa fa-angle-right"></i> </button>
+                                    <!-- <button type="submit" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-success next-btn">Next Step <i class="fa fa-angle-right"></i> </button> -->
+                                    <button type="submit"  class="btn btn-info" ng-click="open()" style="margin: 15px;">Open Modal</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                     <!-- Begin Bootstrap3 modal -->
-                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <p style="text-align: center;">Thanks!  Do you want to add another student?  It could be one of yours or a grandchild, niece or nephew…go crazy.</p>
                                 <div class="form-group mt-50">
                                     <div class="row">
                                         <div class="form-group col-md-6 col-md-offset-3">
-                                            <a ui-sref="" type="button" class="btn btn-info next-btn" style="width: 100%; padding: 15px; font-size: 22px;">Add Additional Student</a>
+                                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                            <button ng-click="spas.moveToAddPage()" class="btn btn-info next-btn" style="padding: 15px; font-size: 22px;">Add Additional Student</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- End Bootstrap3 modal -->
                 </div>
             </div>

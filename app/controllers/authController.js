@@ -320,4 +320,50 @@ AuthController.authenticateUser = function(req, res) {
     }
 }
 
+// Authenticate Student.
+AuthController.signinStudent = function(req, res) {
+    var studentEmail = req.body.studentEmail,
+        parentEmail = req.body.parentEmail,
+        potentialStudentEmail = { where: { email: studentEmail } },
+        potentialParentEmail = { where: { email: parentEmail } };
+    
+    Student.findOne(potentialStudentEmail).then(function(student) {
+        if(student) {
+            var studentToken = student.dataValues.token.toString();
+            Parent.findOne(potentialParentEmail).then(function(parent) {
+                if(parent) {
+                    var parentID = parent.dataValues.id.toString();
+                    bcrypt.compare(parentID, studentToken, function(error, response) {
+                        if(error) {
+                            res.status(404).json({
+                                message: 'There is no user, if you have not account, signup please'
+                            });
+                        } else {
+                            var token = jwt.sign(
+                                { email: studentEmail },
+                                config.keys.secret,
+                                { expiresIn: '60m' }
+                            );
+    
+                            res.json({
+                                success: true,
+                                token: 'JWT ' + token,
+                                role: student.role
+                            });
+                        }
+                    })
+                } else {
+                    res.status(404).json({
+                        message: 'There is no user, if you have not account, signup please'
+                    });
+                }
+            });
+        } else {
+            res.status(404).json({
+                message: 'There is no user, if you have not account, signup please'
+            });
+        }
+    })
+}
+
 module.exports = AuthController;

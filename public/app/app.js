@@ -3,7 +3,8 @@
 
     var subscriptionApp = angular.module('subscriptionApp', [
         'ui.router',
-        'ngCookies'
+        'ngCookies',
+        'ui.bootstrap'
     ]);
 
     // API Request Interceptor

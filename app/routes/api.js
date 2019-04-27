@@ -19,6 +19,7 @@ var APIRoutes = function(passport) {
     router.post('/signup/parent/verify', AuthController.signUpParentVerify);
     router.post('/signup/setsuffix', AuthController.signUpSetSuffix);
     router.post('/authenticate', AuthController.authenticateUser);
+    router.post('/signin/student', AuthController.signinStudent);
 
     router.post('/get/state', FetchDataController.fetchAllStates);
     router.post('/get/school', FetchDataController.fetchAllSchools);
