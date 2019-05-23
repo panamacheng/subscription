@@ -11,11 +11,24 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 25/04/2019 01:35:49
+ Date: 08/05/2019 05:08:28
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for tbl_accounts_intersect
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_accounts_intersect`;
+CREATE TABLE `tbl_accounts_intersect`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NULL DEFAULT NULL,
+  `student_id` int(11) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_activities
@@ -51,6 +64,23 @@ INSERT INTO `tbl_activities` VALUES (16, 'Sports and Recreation', NULL, NULL);
 INSERT INTO `tbl_activities` VALUES (17, 'Technology Enthusiats', NULL, NULL);
 INSERT INTO `tbl_activities` VALUES (18, 'Volunteer Opportunities', NULL, NULL);
 INSERT INTO `tbl_activities` VALUES (19, 'Other', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for tbl_bodys
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_bodys`;
+CREATE TABLE `tbl_bodys`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(3000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `category_id` int(11) NULL DEFAULT NULL,
+  `subcategory_id` int(11) NULL DEFAULT NULL,
+  `tense` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `language_id` int(11) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  `status` int(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for tbl_challenges
@@ -343,6 +373,34 @@ INSERT INTO `tbl_countries` VALUES (247, 'Zambia', 'ZM', NULL, NULL);
 INSERT INTO `tbl_countries` VALUES (248, 'Zimbabwe', 'ZW', NULL, NULL);
 
 -- ----------------------------
+-- Table structure for tbl_images
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_images`;
+CREATE TABLE `tbl_images`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `tags` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  `status` int(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for tbl_interests
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_interests`;
+CREATE TABLE `tbl_interests`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `send_id` int(11) NULL DEFAULT NULL,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
 -- Table structure for tbl_majors
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_majors`;
@@ -413,19 +471,29 @@ INSERT INTO `tbl_majors` VALUES (53, 'Wildlife and Fishery Science', NULL, NULL)
 INSERT INTO `tbl_majors` VALUES (54, 'Other', NULL, NULL);
 
 -- ----------------------------
+-- Table structure for tbl_overlays
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_overlays`;
+CREATE TABLE `tbl_overlays`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT ' ',
+  `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `category_id` int(11) NULL DEFAULT NULL,
+  `subcategory_id` int(11) NULL DEFAULT NULL,
+  `tense` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `language_id` int(11) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  `status` int(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
 -- Table structure for tbl_parents
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_parents`;
 CREATE TABLE `tbl_parents`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `suffix` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `security_question_id` int(11) NULL DEFAULT NULL,
-  `security_answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_id` int(11) NULL DEFAULT NULL,
   `verify_code` int(255) NULL DEFAULT NULL,
   `country_id` int(11) NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -438,7 +506,6 @@ CREATE TABLE `tbl_parents`  (
   `cvc` int(11) NULL DEFAULT NULL,
   `plan_id` int(11) NULL DEFAULT NULL,
   `end_at` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `createdAt` datetime(0) NOT NULL,
   `updatedAt` datetime(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -497,6 +564,32 @@ CREATE TABLE `tbl_security_qustions`  (
   `id` int(2) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status` int(1) NOT NULL COMMENT '0 => set, 1 => deleted(safe delete at project)',
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_security_qustions
+-- ----------------------------
+INSERT INTO `tbl_security_qustions` VALUES (1, 'what is your first name?', 0, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for tbl_sends
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_sends`;
+CREATE TABLE `tbl_sends`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `overlay_id` int(11) NULL DEFAULT NULL,
+  `title_id` int(11) NULL DEFAULT NULL,
+  `body_id` int(11) NULL DEFAULT NULL,
+  `image_id` int(11) NULL DEFAULT NULL,
+  `send_date` datetime(0) NULL DEFAULT NULL,
+  `send_time` datetime(0) NULL DEFAULT NULL,
+  `send_method` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `received_status` int(1) NULL DEFAULT NULL,
+  `content_rank` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `createdAt` datetime(0) NULL DEFAULT NULL,
   `updatedAt` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -597,15 +690,9 @@ INSERT INTO `tbl_states` VALUES (51, 'Wyoming', 'WY', NULL, NULL);
 DROP TABLE IF EXISTS `tbl_students`;
 CREATE TABLE `tbl_students`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `p_id` int(11) NOT NULL,
-  `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `phone_number` int(15) NULL DEFAULT NULL,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `p_id` int(11) NULL DEFAULT NULL,
   `token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `security_question_id` int(11) NULL DEFAULT NULL,
-  `security_answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `gender` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `birth_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `time_zone_id` int(11) NULL DEFAULT NULL,
@@ -618,11 +705,48 @@ CREATE TABLE `tbl_students`  (
   `challenge_id` int(11) NULL DEFAULT NULL,
   `login_at` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `end_at` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `createdAt` datetime(0) NOT NULL,
   `updatedAt` datetime(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `p_id`(`p_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for tbl_titles
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_titles`;
+CREATE TABLE `tbl_titles`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `category_id` int(11) NULL DEFAULT NULL,
+  `subcategofy_id` int(11) NULL DEFAULT NULL,
+  `tense` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `language_id` int(11) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for tbl_users
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_users`;
+CREATE TABLE `tbl_users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `phone_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `security_question_id` int(1) NULL DEFAULT NULL,
+  `security_answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role` int(1) NULL DEFAULT NULL,
+  `flag` int(1) NULL DEFAULT NULL,
+  `createdAt` datetime(0) NULL DEFAULT NULL,
+  `updatedAt` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
