@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="en" ng-app="subscriptionApp">
+    <head>
+        <base href="/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Subscription Content System using JWTs, Angular, MySQL, Express and the Sequelize ORM.">
+        <meta name="author" content="Super-Sean1995">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>SUBSCRIPTION</title>
+
+        <!-- Material Design for Bootstrap fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+        <!-- Material Design for Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+        <!-- Input Custom style css file -->
+        <link rel="stylesheet" href="assets/styles/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/styles/owl.theme.default.min.css">
+        <link rel="stylesheet" href="assets/styles/custom-style.css">
+        <link rel="favicon" href="assets/images/favicon.ico">
+
+    </head>
+    <body data-gr-c-s-loaded="true" class="bg-light">
+        
+        <div data-ng-include="'app/views/partials/navbar.html'"  class="sticky-top flex-md-nowrap p-0"></div>
+
+        <div class="container-fluid">
+            <div ui-view></div>
+        </div>
+
+        <div data-ng-include="'app/views/partials/footer.html'"></div>
+        <!-- Optional JavaScript -->
+        
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        
+        <script src="assets/javascripts/jquery.min.js"></script>
+        <!-- <script src="assets/javascripts/popper.min.js"></script> -->
+        <!-- <script src="assets/javascripts/bootstrap.min.js"></script> -->
+        <script src="assets/javascripts/owl.carousel.js"></script> 
+        <script src="assets/javascripts/theme.js"></script>
+        <script src="assets/javascripts/typewritter-effect.js"></script>
+        
+
+        <!-- Angular.js Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+        <script src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+
+        <!-- Import Application main functions -->
+        <script src="app/app.js"></script>
+        <script src="app/services/authService.js"></script>
+        <!-- <script src="app/services/initialDataService.js"></script> -->
+
+        <!-- Import sub controllers -->
+        <script src="app/controllers/navController.js"></script>
+        <script src="app/controllers/signup/parentController.js"></script>
+
+        <!-- <script>
+            $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
+        </script> -->
+    </body>
 </html>

@@ -29,13 +29,20 @@ These are codebase for building this application.
     * @juspay/simple-card-validator,
     * child_process
 
+* Front-end design: 
+    * https://fezvrasta.github.io/bootstrap-material-design/
+    * https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/introduction/
+
+* Credit Card Validation Test: 
+    * https://www.paypalobjects.com/en_AU/vhelp/paypalmanager_help/credit_card_numbers.htm
+    * https://www.simplify.com/commerce/docs/testing/test-card-numbers
+    
 # Project Structure.
 
 ````
 .
 ├── app
 │   ├── server.js
-│   ├── setting.js
 │   ├── migrations
 │   ├── models
 │   ├── config
@@ -47,17 +54,21 @@ These are codebase for building this application.
 ├── public
 │   ├── app
 │   │   ├── controllers
+│   │   │   ├── home
+│   │   │   ├── signup
+│   │   │   ├── signup
+│   │   │   └── navController.js
 │   │   ├── services
 │   │   ├── views
+│   │   │   ├── partials
+│   │   │   ├── signup
+│   │   │   ├── home
+│   │   │   └── index.html
 │   │   └── app.js
 │   └── assets
 │       ├── images
 │       ├── js
 │       ├── css
-│       │   ├── Cache1.js
-│       │   ├── Cache1.spec.js
-│       │   └── Cache2.js
-│       │   └── Cache2.spec.js
 │       └── fonts
 ├── .sequelizerc
 ├── package.json

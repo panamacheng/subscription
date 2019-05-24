@@ -1,0 +1,109 @@
+<section class="container">
+    <div class="col-md-6 offset-xl-3 mt-5 mb-5">
+        <div class="card">
+            <div class="card-header pt-lg-5">
+                <div class="form-group text-center">
+                    <img src="assets/images/icon-1.png" alt="">
+                </div>
+                <div class="form-group text-center pb-0 mb-0">
+                    <label class="mb-0">Risk free, 14 day free trial, cancel anymore</la>
+                </div>
+            </div>
+            <div class="card-body">
+                <form ng-submit="pc.signupParent()" class="needs-validation">
+                    <div class="form-group text-center mt-2">
+                        <h3 class="font-weight-bold text-dark">SIGN UP</h3>
+                    </div>
+                    <div class="row mt-lg-4">
+                        <div class="col-md-6">
+                            <div class="input-group pl-5 pr-0">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons text-primary">
+                                                perm_identity &nbsp;
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input ng-model="pc.firstName" type="text" class="form-control" placeholder=" &nbsp;First Name" autocomplete="on" autofocus/>
+                                    <div ng-if="pc.firstNameError" class="invalid-form ml-5">
+                                       {{pc.firstNameErrorMsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group pl-0 pr-5">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons text-primary">
+                                                perm_identity &nbsp;
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input ng-model="pc.lastName" type="text" class="form-control" placeholder=" &nbsp;Last Name" autocomplete="on"/>
+                                    <div ng-if="pc.lastNameError" class="invalid-form ml-5">
+                                       {{pc.lastNameErrorMsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pl-lg-5 pr-lg-5">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="material-icons text-primary">
+                                        email &nbsp;
+                                    </i>
+                                </span>
+                            </div>
+                            <input ng-model="pc.email" type="email" class="form-control" placeholder=" &nbsp;Parent Email" autocomplete="on" required/>
+                            <div ng-if="pc.emailError" class="invalid-form ml-5">
+                                {{ pc.emailErrorMsg }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group pl-5 pr-0">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="material-icons text-primary">
+                                                lock &nbsp;
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input ng-model="pc.password" type="password" class="form-control" placeholder=" &nbsp;Password" autocomplete="on"/>
+                                    <div ng-if="pc.passwordError" class="invalid-form ml-5">
+                                        {{pc.passwordErrorMsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mt-2 pl-4">
+                                <h5 class="font-weight-bold text-dark">Pattern</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group d-lg-flex align-items-right pr-lg-5 mt-lg-3">
+                        <div class="input-group pl-lg-3 font-weight-bold">
+                            <div ng-if="pc.singupParentError" class="invalid-form ml-5">
+                                <label for="">{{pc.singupParenErrorMsg}}</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="ml-auto p-2 pl-2 pr-2 btn btn-raised btn-success">
+                            Get started
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

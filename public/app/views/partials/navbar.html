@@ -1,0 +1,62 @@
+<!-- Main header -->
+
+<header data-ng-controller="NavController as nc">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white">
+        <a class="navbar-brand text-danger font-weight-bold ml-lg-5" ui-sref="home">
+            <!-- <img src="assets/images/icon-1.png" alt=""> -->
+            <h3 class="font-weight-bold text-info d-lg-inline-flex text-truncate"> &nbsp;LOGO&nbsp; </h3>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" ng-if="!nc.isAuthenticated() && !nc.isRegisterUser && !nc.isLogin">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-info font-weight-bold" href="#">
+                        Home <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success font-weight-bold" href="#">
+                        Why it works
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success font-weight-bold" href="#">
+                        How it works
+                    </a>
+                </li>
+                
+            </ul>
+            <div class="form-inline my-2 my-lg-0 mr-lg-5">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-success my-2 my-sm-0">
+                        <a ui-sref="signup/parent">
+                            Get start
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-info  my-2 my-sm-0">
+                        <a ui-sref="login">
+                            Sign in
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse align-items-end flex-column mr-lg-5" ng-if="!nc.isAuthenticated() && nc.isRegisterUser && !nc.isLogin">
+            <div class="form-inline my-2 my-lg-0">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <label for=".btn">If you have account</label>
+                    <button type="button" class="btn btn-info  my-2 my-sm-0">
+                        <a ui-sref="login">
+                            Sign in
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
